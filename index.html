@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OBS iOS 8 Remote</title>
+    <title>OBS Remote</title>
     <style>
         body { font-family: Arial, sans-serif; background: #1a1a1a; color: #fff; text-align: center; padding: 20px; }
         h1 { color: #00bfff; font-size: 24px; }
@@ -14,7 +14,7 @@
         .btn.activo { background: #00bfff !important; border-color: #00e5ff !important; color: #fff !important; }
         #status { font-weight: bold; color: #ff4444; margin-bottom: 20px; }
 
-        /* ESTILOS PARA EL NUEVO BOTÓN DE TRANSMISIÓN */
+        /* ESTILOS PARA EL BOTÓN DE TRANSMISIÓN */
         .btn-stream { background: #444; border-color: #666; margin-top: 25px; margin-bottom: 25px; }
         .btn-stream.transmitiendo { background: #cc0000 !important; border-color: #ff4444 !important; animation: parpadeo 1.5s infinite; }
 
@@ -29,7 +29,7 @@
     <h1>OBS - Control remoto</h1>
     <div id="status">Conectando...</div>
 
-    <!-- NUEVO: Botón para detener transmisión -->
+    <!-- Botón para detener transmisión -->
     <div>
         <button id="btn-stop-stream" class="btn btn-stream">Terminar Transmisión</button>
     </div>
@@ -94,7 +94,7 @@
                     ws.send(JSON.stringify(pedirEstadoStream));
                 }
 
-                // Dibujar botones y detectar cuál es la activa al conectar
+                // Dibujar botones y detectar cuál es la escena activa al conectar
                 if (msg.op === 7 && msg.d.requestType === "GetSceneList") {
                     escenaActual = msg.d.responseData.currentProgramSceneName;
                     var scenes = msg.d.responseData.scenes;
